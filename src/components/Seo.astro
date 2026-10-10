@@ -1,0 +1,40 @@
+---
+import { LOCALES, DEFAULT_LOCALE, type Locale } from '@/i18n/config';
+import { absoluteUrl, localeTag } from '@/i18n/utils';
+
+interface Props {
+  locale: Locale;
+  title: string;
+  description: string;
+  /** Same page in every locale, for hreflang. */
+  alternates: { locale: Locale; path: string }[];
+  image?: string;
+  type?: 'website' | 'article';
+}
+
+const { locale, title, description, alternates, image = '/og/default.png', type = 'website' } = Astro.props;
+const canonical = absoluteUrl(Astro.url.pathname);
+const defaultAlternate = alternates.find((a) => a.locale === DEFAULT_LOCALE);
+const siteName = 'titorjs.dev';
+---
+
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonical} />
+{alternates.map(({ locale: l, path }) => <link rel="alternate" hreflang={localeTag(l)} href={absoluteUrl(path)} />)}
+{defaultAlternate && <link rel="alternate" hreflang="x-default" href={absoluteUrl(defaultAlternate.path)} />}
+
+<meta property="og:type" content={type} />
+<meta property="og:site_name" content={siteName} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonical} />
+<meta property="og:image" content={absoluteUrl(image)} />
+<meta property="og:locale" content={localeTag(locale).replace('-', '_')} />
+{LOCALES.filter((l) => l !== locale).map((l) => (
+  <meta property="og:locale:alternate" content={localeTag(l).replace('-', '_')} />
+))}
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={absoluteUrl(image)} />

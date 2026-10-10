@@ -1,0 +1,45 @@
+---
+import type { Locale } from '@/i18n/config';
+import { localePath, t } from '@/i18n/utils';
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const tr = t(locale);
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <span>© {year} {tr('footer.rights')} · <a href="https://github.com/titorjs/titorjs.dev">{tr('footer.source')}</a></span>
+    <nav class="footer__links" aria-label="Social">
+      <a href="https://github.com/titorjs" rel="me">github</a>
+      <a href="https://www.linkedin.com/in/titorjs" rel="me">linkedin</a>
+      <a href="mailto:tito@titorjs.dev">tito@titorjs.dev</a>
+      <a href={localePath(locale, 'blog', 'rss.xml')}>{tr('footer.rss')}</a>
+    </nav>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    margin-top: auto;
+    border-top: 1px solid var(--color-rule);
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    color: var(--color-muted);
+  }
+  .footer__inner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: var(--space-2) var(--space-6);
+    padding-block: var(--space-4);
+  }
+  .footer__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+  }
+  .footer a { color: var(--color-muted); }
+  .footer a:hover { color: var(--color-text); }
+</style>

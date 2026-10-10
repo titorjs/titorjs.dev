@@ -1,0 +1,36 @@
+---
+/**
+ * Renders every top-level static page (about, projects, now, contact, cv, blog index
+ * placeholder) from one route map. Each gets its own component as the phases land.
+ */
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import type { Locale } from '@/i18n/config';
+import { ROUTES, STATIC_PAGES, routeFromSlug } from '@/i18n/routes';
+import { alternates, localeStaticPaths, t } from '@/i18n/utils';
+
+export const getStaticPaths = () =>
+  localeStaticPaths((locale) => STATIC_PAGES.map((route) => ({ slug: ROUTES[route][locale] })));
+
+const { locale } = Astro.props as { locale: Locale };
+const route = routeFromSlug(locale, Astro.params.slug);
+if (!route) throw new Error(`No route for slug "${Astro.params.slug}" in locale "${locale}"`);
+const tr = t(locale);
+const title = tr(`page.${route}.title` as const);
+---
+
+<BaseLayout locale={locale} route={route} title={title} description={tr('site.description')} alternates={alternates(route)}>
+  <article class="page">
+    <h1>{title}</h1>
+    <p class="page__placeholder">{tr('page.placeholder')}</p>
+  </article>
+</BaseLayout>
+
+<style>
+  .page {
+    display: grid;
+    gap: var(--space-6);
+  }
+  .page__placeholder {
+    color: var(--color-muted);
+  }
+</style>

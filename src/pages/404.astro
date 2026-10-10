@@ -1,0 +1,25 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { DEFAULT_LOCALE } from '@/i18n/config';
+import { alternates, localePath, t } from '@/i18n/utils';
+
+const locale = DEFAULT_LOCALE;
+const tr = t(locale);
+---
+
+<BaseLayout locale={locale} route="home" title={tr('notFound.title')} description={tr('notFound.body')} alternates={alternates('home')}>
+  <section class="not-found">
+    <p class="label label--accent mono">404</p>
+    <h1>{tr('notFound.title')}</h1>
+    <p>{tr('notFound.body')}</p>
+    <a class="button" href={localePath(locale, 'home')}>{tr('notFound.back')}</a>
+  </section>
+</BaseLayout>
+
+<style>
+  .not-found {
+    display: grid;
+    gap: var(--space-4);
+    justify-items: start;
+  }
+</style>
