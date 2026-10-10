@@ -47,3 +47,47 @@ src/components/  Header · Footer · Seo · ThemeToggle · LanguageSwitch
 src/pages/[...lang]/   index.astro · [slug].astro (static pages) · blog/ (phase 4)
 public/          favicon.svg · og/
 ```
+
+## Brief (who and why)
+
+Tito Roberto Jaramillo Salazar, handle `titorjs` everywhere, software engineer in Quito, Ecuador,
+Spanish native, English B2. Career direction: AI Solutions Architect / AI research, especially
+neural-network interpretability, via teaching, consulting or a large firm. The site also serves as
+a showcase for international freelancing and for open-source work on GitHub (`titorjs`).
+
+Goal: a simple, fast, easy-to-maintain personal portfolio with a blog. It must present him, show
+the best 2 or 3 projects, publish notes and articles, and make contact easy.
+
+## Decisions already taken (do not reopen)
+
+- Design: direction "F2" from the mockups. Round 1 (five styles):
+  https://claude.ai/artifact/9VPprYdFDjdjZ7jvpiuEsq · Round 2 (B+D blend, dark-first, chosen):
+  https://claude.ai/artifact/CuoDiNG6mKDFKVeBPx4zZp. Accent is the cobalt shown there.
+- Plain CSS over Tailwind (public template repo; readable stylesheets). No React until needed.
+- i18n: `es` at root, `en` under `/en/`. Mandarin may come later; the locale list is one array.
+- Blog: a post may exist in only one language; show a "only in ES/EN" notice linking to it.
+- Projects: hand-written cards (Markdown/JSON in repo), not pulled from the GitHub API.
+- Contact: email, GitHub, LinkedIn, one line of services. No form, no backend.
+- "Ahora/Now" is its own page (already routed), not a hero panel.
+- Open Graph images: static PNGs in `public/og/`. Comments: none for now (Giscus maybe later).
+- Analytics: Cloudflare Web Analytics, added at deploy time / when the domain is bought.
+- Hosting: Cloudflare Pages. Domain `titorjs.dev` bought and on Cloudflare (Oct 2026).
+  Email `tito@titorjs.dev` forwards to his personal inbox via Cloudflare Email Routing (done);
+  sending *as* that address from Gmail is still pending.
+- CV: one PDF per language, public version without phone number or references. Sources in `cv/`
+  (HTML + print CSS using the light tokens), rendered with `npm run cv` (headless Chrome) into
+  `public/cv/titorjs-cv-<locale>.pdf`. Keep the original docx private.
+- `doctest.titorjs.dev` (demos/testing, noindex, unlinked) is a separate project. Out of scope here.
+- Social links: GitHub, LinkedIn, email only by default. Instagram undecided; ask.
+
+## Open items
+
+- Phase 2 inputs still needed from the owner: final Home tagline (ES/EN or keep current), About
+  copy (2–3 short paragraphs or bullets to turn into prose; what he is learning now; what work he
+  wants), the services line for Contact.
+- Confirm the LinkedIn slug used in `Footer.astro` (`linkedin.com/in/titorjs`).
+- `public/og/default.png` is referenced by `Seo.astro` but does not exist yet (phase 6).
+- CV: headline (keep "Customer Care Engineer" or lead with AI?) and the LinkedIn URL (the PDFs use
+  the long slug from the docx, the footer uses `/in/titorjs`) need the owner's answer.
+- Which 2–3 projects to feature (Orion is the obvious first; `core-web-blueprint` a candidate).
+- Palette and type are locked; a real-browser look at the skeleton has not happened yet.

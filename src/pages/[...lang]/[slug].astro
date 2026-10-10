@@ -4,7 +4,7 @@
  * placeholder) from one route map. Each gets its own component as the phases land.
  */
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import type { Locale } from '@/i18n/config';
+import { LOCALES, LOCALE_LABELS, type Locale } from '@/i18n/config';
 import { ROUTES, STATIC_PAGES, routeFromSlug } from '@/i18n/routes';
 import { alternates, localeStaticPaths, t } from '@/i18n/utils';
 
@@ -16,12 +16,34 @@ const route = routeFromSlug(locale, Astro.params.slug);
 if (!route) throw new Error(`No route for slug "${Astro.params.slug}" in locale "${locale}"`);
 const tr = t(locale);
 const title = tr(`page.${route}.title` as const);
+
+const cvPdf = (l: Locale) => `/cv/titorjs-cv-${l}.pdf`;
+const cvOthers = LOCALES.filter((l) => l !== locale);
 ---
 
 <BaseLayout locale={locale} route={route} title={title} description={tr('site.description')} alternates={alternates(route)}>
   <article class="page">
     <h1>{title}</h1>
-    <p class="page__placeholder">{tr('page.placeholder')}</p>
+    {
+      route === 'cv' ? (
+        <ul class="downloads">
+          <li>
+            <a class="downloads__main" href={cvPdf(locale)} download>
+              {tr('page.cv.download')}
+            </a>
+          </li>
+          {cvOthers.map((l) => (
+            <li>
+              <a href={cvPdf(l)} hreflang={l} download>
+                {LOCALE_LABELS[l]} (PDF)
+              </a>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p class="page__placeholder">{tr('page.placeholder')}</p>
+      )
+    }
   </article>
 </BaseLayout>
 
@@ -32,5 +54,25 @@ const title = tr(`page.${route}.title` as const);
   }
   .page__placeholder {
     color: var(--color-muted);
+  }
+  .downloads {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--space-3);
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+  }
+  .downloads__main {
+    display: inline-block;
+    padding: var(--space-2) var(--space-4);
+    border: 1px solid var(--color-accent);
+    color: var(--color-accent);
+  }
+  .downloads__main:hover {
+    background: var(--color-accent);
+    color: var(--color-on-accent);
+    text-decoration: none;
   }
 </style>

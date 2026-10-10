@@ -32,6 +32,7 @@ const es = {
   'page.now.title': 'Ahora',
   'page.contact.title': 'Contacto',
   'page.cv.title': 'CV',
+  'page.cv.download': 'Descargar CV (PDF)',
   'page.placeholder': 'Esta página está en construcción.',
 
   'footer.rights': 'Tito Jaramillo',
@@ -78,6 +79,7 @@ const en: UiDictionary = {
   'page.now.title': 'Now',
   'page.contact.title': 'Contact',
   'page.cv.title': 'CV',
+  'page.cv.download': 'Download CV (PDF)',
   'page.placeholder': 'This page is under construction.',
 
   'footer.rights': 'Tito Jaramillo',
