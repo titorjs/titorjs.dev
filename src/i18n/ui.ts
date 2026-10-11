@@ -26,6 +26,10 @@ const es = {
 
   'home.cta.projects': 'Ver proyectos',
   'home.cta.contact': 'Contacto',
+  'home.projects.title': 'Proyectos destacados',
+  'home.projects.all': 'Todos los proyectos',
+  'home.now.title': 'Ahora',
+  'home.now.all': 'Ver la página completa',
 
   'page.home.title': 'Inicio',
   'page.about.title': 'Sobre mí',
@@ -84,6 +88,10 @@ const en: UiDictionary = {
 
   'home.cta.projects': 'See projects',
   'home.cta.contact': 'Contact',
+  'home.projects.title': 'Featured projects',
+  'home.projects.all': 'All projects',
+  'home.now.title': 'Now',
+  'home.now.all': 'See the full page',
 
   'page.home.title': 'Home',
   'page.about.title': 'About',
