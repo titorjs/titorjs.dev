@@ -1,0 +1,17 @@
+{
+  "order": 3,
+  "title": {
+    "es": "titorjs.dev",
+    "en": "titorjs.dev"
+  },
+  "meta": {
+    "es": "Open source · 2026",
+    "en": "Open source · 2026"
+  },
+  "summary": {
+    "es": "Este sitio. Astro, bilingüe, dark-first, CSS plano, Cloudflare Pages.",
+    "en": "This site. Astro, bilingual, dark-first, plain CSS, Cloudflare Pages."
+  },
+  "stack": ["Astro", "TypeScript", "CSS", "Cloudflare Pages"],
+  "url": "https://github.com/titorjs/titorjs.dev"
+}

@@ -1,0 +1,16 @@
+{
+  "order": 2,
+  "title": {
+    "es": "core-web-blueprint",
+    "en": "core-web-blueprint"
+  },
+  "meta": {
+    "es": "Plantilla propia para sitios de clientes · 2026",
+    "en": "Own template for client sites · 2026"
+  },
+  "summary": {
+    "es": "Plantilla Astro para sitios de clientes pequeños: contenido en un JSON validado con Zod, identidad visual en un CSS. Un sitio nuevo sin tocar código. Es la base de mis proyectos para clientes.",
+    "en": "Astro template for small-business client sites: content in a Zod-validated JSON file, visual identity in one CSS file. A new site without touching code. It is the base for my client projects."
+  },
+  "stack": ["Astro 7", "TypeScript", "Zod"]
+}

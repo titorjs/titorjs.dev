@@ -1,0 +1,16 @@
+{
+  "order": 1,
+  "title": {
+    "es": "Plataforma de portafolios financieros",
+    "en": "Financial portfolio platform"
+  },
+  "meta": {
+    "es": "Cliente privado · 2025–2026 · En QA",
+    "en": "Private client · 2025–2026 · In QA"
+  },
+  "summary": {
+    "es": "Monorepo con backend modular (Spring Boot 4, Spring Modulith), gateway JWT, frontend Angular 21 e integración con la API de una bolsa de valores. Decisiones documentadas en ADRs. Desarrollado con cinco agentes especializados bajo un orquestador y especificaciones con spec-kit. Sin enlace público.",
+    "en": "Monorepo with a modular backend (Spring Boot 4, Spring Modulith), JWT gateway, Angular 21 frontend and integration with a stock exchange API. Decisions documented as ADRs. Built with five specialised agents under an orchestrator and specifications with spec-kit. No public link."
+  },
+  "stack": ["Spring Boot 4", "Spring Modulith", "Spring Cloud Gateway", "Angular 21", "PostgreSQL", "Keycloak", "Flyway", "Docker"]
+}

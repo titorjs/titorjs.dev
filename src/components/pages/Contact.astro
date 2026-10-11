@@ -1,0 +1,32 @@
+---
+import type { Locale } from '@/i18n/config';
+import { t } from '@/i18n/utils';
+import { SOCIAL } from '@/site';
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const tr = t(locale);
+---
+
+<div class="contact">
+  <p class="contact__lead">
+    {tr('contact.intro')} <a class="contact__email" href={`mailto:${SOCIAL.email}`}>{SOCIAL.email}</a>.
+    {tr('contact.also')} <a href={SOCIAL.github} rel="me">GitHub</a> {locale === 'es' ? 'y' : 'and'} <a href={SOCIAL.linkedin} rel="me">LinkedIn</a>.
+  </p>
+  <p>{tr('contact.services')}</p>
+  <p class="label">{tr('contact.meta')}</p>
+</div>
+
+<style>
+  .contact {
+    display: grid;
+    gap: var(--space-6);
+    max-width: var(--measure);
+  }
+  .contact__lead {
+    font-size: var(--text-lg);
+  }
+  .contact__email {
+    font-family: var(--font-mono);
+  }
+</style>

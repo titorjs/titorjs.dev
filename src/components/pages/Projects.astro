@@ -1,0 +1,80 @@
+---
+import { getCollection } from 'astro:content';
+import type { Locale } from '@/i18n/config';
+import { t } from '@/i18n/utils';
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const tr = t(locale);
+const projects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
+---
+
+<ul class="projects">
+  {
+    projects.map(({ data }) => (
+      <li class="project">
+        <p class="label">{data.meta[locale]}</p>
+        <h2 class="project__title">
+          {data.url ? <a href={data.url}>{data.title[locale]}</a> : data.title[locale]}
+        </h2>
+        <p class="project__summary">{data.summary[locale]}</p>
+        <ul class="project__stack" aria-label={tr('projects.stack')}>
+          {data.stack.map((item) => (
+            <li class="chip">{item}</li>
+          ))}
+        </ul>
+        {data.url && (
+          <a class="project__link" href={data.url}>
+            {tr('projects.link')} →
+          </a>
+        )}
+      </li>
+    ))
+  }
+</ul>
+
+<style>
+  .projects {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+  }
+  .project {
+    display: grid;
+    gap: var(--space-3);
+    padding-block: var(--space-8);
+    border-top: 1px solid var(--color-rule);
+  }
+  .project:last-child {
+    border-bottom: 1px solid var(--color-rule);
+  }
+  .project__title {
+    font-size: var(--text-xl);
+  }
+  .project__title a {
+    color: inherit;
+  }
+  .project__summary {
+    color: var(--color-muted);
+  }
+  .project__stack {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+  .chip {
+    padding: var(--space-1) var(--space-2);
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    background: var(--color-chip);
+    color: var(--color-chip-text);
+  }
+  .project__link {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+  }
+</style>

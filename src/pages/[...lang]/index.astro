@@ -20,6 +20,7 @@ const tr = t(locale);
     <p class="label label--accent">{tr('site.location')}</p>
     <h1 class="hero__name"><span class="hero__prefix" aria-hidden="true">// </span>Tito Jaramillo</h1>
     <p class="hero__tagline">{tr('site.tagline')}</p>
+    <p class="hero__intro">{tr('site.intro')}</p>
     <div class="hero__actions">
       <a class="button button--primary" href={localePath(locale, 'projects')}>{tr('home.cta.projects')}</a>
       <a class="button" href={localePath(locale, 'contact')}>{tr('home.cta.contact')}</a>
@@ -41,6 +42,9 @@ const tr = t(locale);
     font-size: var(--text-lg);
     color: var(--color-muted);
     max-width: 44ch;
+  }
+  .hero__intro {
+    max-width: var(--measure);
   }
   .hero__actions {
     display: flex;

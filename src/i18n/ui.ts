@@ -3,8 +3,10 @@ import type { Locale } from './config';
 const es = {
   'site.title': 'Tito Jaramillo',
   'site.description':
-    'Ingeniero de software en Quito. Construyo sistemas con IA y estudio cómo piensan las redes neuronales.',
-  'site.tagline': 'Construyo sistemas con IA y estudio cómo piensan las redes neuronales.',
+    'Ingeniero de software en Quito. Backend Java/Spring, desarrollo con agentes de IA, y un camino que empieza hacia la investigación en IA.',
+  'site.tagline':
+    'Ingeniero de software en Quito. Backend Java/Spring, desarrollo con agentes de IA, y un camino que empieza hacia la investigación en IA.',
+  'site.intro': 'Trabajo en sistemas bancarios, construyo aplicaciones web completas y escribo sobre lo que aprendo en el camino.',
   'site.location': 'Quito, Ecuador · UTC−5',
 
   'nav.home': 'Inicio',
@@ -33,6 +35,15 @@ const es = {
   'page.contact.title': 'Contacto',
   'page.cv.title': 'CV',
   'page.cv.download': 'Descargar CV (PDF)',
+  'about.cv': 'Versión en PDF: CV',
+  'now.updated': 'Actualizado',
+  'projects.stack': 'Stack',
+  'projects.link': 'Ver en GitHub',
+  'contact.intro': 'Escríbeme a',
+  'contact.also': 'También estoy en',
+  'contact.services':
+    'Disponible para proyectos freelance: backend Java/Spring, aplicaciones web con Angular y sitios estáticos para pequeños negocios.',
+  'contact.meta': 'Zona horaria UTC−5 · Español nativo · Inglés B2',
   'page.placeholder': 'Esta página está en construcción.',
 
   'footer.rights': 'Tito Jaramillo',
@@ -50,8 +61,10 @@ export type UiDictionary = Record<UiKey, string>;
 const en: UiDictionary = {
   'site.title': 'Tito Jaramillo',
   'site.description':
-    'Software engineer in Quito. I build AI-backed systems and study how neural networks think.',
-  'site.tagline': 'I build AI-backed systems and study how neural networks think.',
+    'Software engineer in Quito. Java/Spring backend, development with AI agents, and a path just starting toward AI research.',
+  'site.tagline':
+    'Software engineer in Quito. Java/Spring backend, development with AI agents, and a path just starting toward AI research.',
+  'site.intro': 'I work on banking systems, build complete web applications and write about what I learn along the way.',
   'site.location': 'Quito, Ecuador · UTC−5',
 
   'nav.home': 'Home',
@@ -80,6 +93,15 @@ const en: UiDictionary = {
   'page.contact.title': 'Contact',
   'page.cv.title': 'CV',
   'page.cv.download': 'Download CV (PDF)',
+  'about.cv': 'PDF version: CV',
+  'now.updated': 'Updated',
+  'projects.stack': 'Stack',
+  'projects.link': 'View on GitHub',
+  'contact.intro': 'Write to me at',
+  'contact.also': 'I am also on',
+  'contact.services':
+    'Available for freelance projects: Java/Spring backend, Angular web applications and static sites for small businesses.',
+  'contact.meta': 'Time zone UTC−5 · Native Spanish · English B2',
   'page.placeholder': 'This page is under construction.',
 
   'footer.rights': 'Tito Jaramillo',

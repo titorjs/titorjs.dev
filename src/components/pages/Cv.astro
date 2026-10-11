@@ -1,0 +1,40 @@
+---
+import { LOCALES, LOCALE_LABELS, type Locale } from '@/i18n/config';
+import { t } from '@/i18n/utils';
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const tr = t(locale);
+const cvPdf = (l: Locale) => `/cv/titorjs-cv-${l}.pdf`;
+const others = LOCALES.filter((l) => l !== locale);
+---
+
+<ul class="downloads">
+  <li>
+    <a class="button button--primary" href={cvPdf(locale)} download>{tr('page.cv.download')}</a>
+  </li>
+  {
+    others.map((l) => (
+      <li>
+        <a class="downloads__alt" href={cvPdf(l)} hreflang={l} download>
+          {LOCALE_LABELS[l]} (PDF)
+        </a>
+      </li>
+    ))
+  }
+</ul>
+
+<style>
+  .downloads {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--space-3);
+    justify-items: start;
+  }
+  .downloads__alt {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+  }
+</style>

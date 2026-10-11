@@ -43,9 +43,12 @@ Node comes from nvm (`nvm use`, see `.nvmrc`).
 src/i18n/        config.ts · routes.ts · ui.ts · utils.ts
 src/styles/      tokens.css · global.css
 src/layouts/     BaseLayout.astro
-src/components/  Header · Footer · Seo · ThemeToggle · LanguageSwitch
+src/components/  Header · Footer · Seo · ThemeToggle · LanguageSwitch · pages/ (one per route)
+src/content/     pages/<route>.<locale>.md · projects/*.json (schema in src/content.config.ts)
+src/site.ts      public contact links (footer and contact page)
 src/pages/[...lang]/   index.astro · [slug].astro (static pages) · blog/ (phase 4)
-public/          favicon.svg · og/
+public/          favicon.svg · og/ · cv/
+cv/              CV sources and build script (npm run cv)
 ```
 
 ## Brief (who and why)
@@ -78,16 +81,17 @@ the best 2 or 3 projects, publish notes and articles, and make contact easy.
   (HTML + print CSS using the light tokens), rendered with `npm run cv` (headless Chrome) into
   `public/cv/titorjs-cv-<locale>.pdf`. Keep the original docx private.
 - `doctest.titorjs.dev` (demos/testing, noindex, unlinked) is a separate project. Out of scope here.
-- Social links: GitHub, LinkedIn, email only by default. Instagram undecided; ask.
+- Social links: GitHub, LinkedIn, email only by default. Instagram undecided; ask. LinkedIn URL is
+  the long slug `linkedin.com/in/tito-jaramillo-salazar-769ba922b` everywhere (site and CV).
+- Copy rules: sincere and accurate. AI and interpretability are stated as intention and study, not
+  as done work. The financial platform stays unnamed (private client). The "Jugador Infinito" award
+  appears on the CV only, never on the site.
 
 ## Open items
 
-- Phase 2 inputs still needed from the owner: final Home tagline (ES/EN or keep current), About
-  copy (2–3 short paragraphs or bullets to turn into prose; what he is learning now; what work he
-  wants), the services line for Contact.
-- Confirm the LinkedIn slug used in `Footer.astro` (`linkedin.com/in/titorjs`).
+- Home below the hero is empty. Proposed: featured projects, first Now bullets, latest posts
+  (phase 4). Owner has not decided yet.
 - `public/og/default.png` is referenced by `Seo.astro` but does not exist yet (phase 6).
-- CV: headline (keep "Customer Care Engineer" or lead with AI?) and the LinkedIn URL (the PDFs use
-  the long slug from the docx, the footer uses `/in/titorjs`) need the owner's answer.
-- Which 2–3 projects to feature (Orion is the obvious first; `core-web-blueprint` a candidate).
-- Palette and type are locked; a real-browser look at the skeleton has not happened yet.
+- Open-source project: wanted but not chosen yet (TODO). Do not list one on the CV or the site
+  until a repo with a README exists. `core-web-blueprint` is private and stays private.
+- Palette and type are locked; the owner has only reviewed phone-width screenshots so far.
