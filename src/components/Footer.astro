@@ -1,6 +1,6 @@
 ---
 import type { Locale } from '@/i18n/config';
-import { t } from '@/i18n/utils';
+import { localePath, t } from '@/i18n/utils';
 import { SOCIAL } from '@/site';
 
 interface Props { locale: Locale }
@@ -11,7 +11,7 @@ const year = new Date().getFullYear();
 
 <footer class="footer">
   <div class="container footer__inner">
-    <span>© {year} {tr('footer.rights')} · <a href={SOCIAL.source}>{tr('footer.source')}</a></span>
+    <span>© {year} {tr('footer.rights')} · <a href={SOCIAL.source}>{tr('footer.source')}</a> · <a href={localePath(locale, 'privacy')}>{tr('nav.privacy')}</a></span>
     <nav class="footer__links" aria-label="Social">
       <a href={SOCIAL.github} rel="me">github</a>
       <a href={SOCIAL.linkedin} rel="me">linkedin</a>

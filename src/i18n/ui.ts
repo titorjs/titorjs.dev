@@ -16,6 +16,7 @@ const es = {
   'nav.now': 'Ahora',
   'nav.contact': 'Contacto',
   'nav.cv': 'CV',
+  'nav.privacy': 'Privacidad',
   'nav.menu': 'Menú',
   'nav.skip': 'Saltar al contenido',
 
@@ -39,6 +40,8 @@ const es = {
   'page.contact.title': 'Contacto',
   'page.cv.title': 'CV',
   'page.cv.download': 'Descargar CV (PDF)',
+  'page.privacy.title': 'Privacidad',
+  'page.privacy.description': 'Qué guarda este sitio en tu navegador y por qué. No hay cookies, analítica ni rastreadores.',
   'about.cv': 'Versión en PDF: CV',
   'now.updated': 'Actualizado',
   'projects.stack': 'Stack',
@@ -78,6 +81,7 @@ const en: UiDictionary = {
   'nav.now': 'Now',
   'nav.contact': 'Contact',
   'nav.cv': 'CV',
+  'nav.privacy': 'Privacy',
   'nav.menu': 'Menu',
   'nav.skip': 'Skip to content',
 
@@ -101,6 +105,8 @@ const en: UiDictionary = {
   'page.contact.title': 'Contact',
   'page.cv.title': 'CV',
   'page.cv.download': 'Download CV (PDF)',
+  'page.privacy.title': 'Privacy',
+  'page.privacy.description': 'What this site stores in your browser and why. No cookies, analytics or trackers.',
   'about.cv': 'PDF version: CV',
   'now.updated': 'Updated',
   'projects.stack': 'Stack',

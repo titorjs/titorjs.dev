@@ -12,6 +12,7 @@ export const ROUTES = {
   now: { es: 'ahora', en: 'now' },
   contact: { es: 'contacto', en: 'contact' },
   cv: { es: 'cv', en: 'cv' },
+  privacy: { es: 'privacidad', en: 'privacy' },
 } as const satisfies Record<string, Record<Locale, string>>;
 
 export type RouteId = keyof typeof ROUTES;

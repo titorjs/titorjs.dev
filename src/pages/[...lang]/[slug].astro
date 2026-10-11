@@ -8,6 +8,7 @@ import About from '@/components/pages/About.astro';
 import Contact from '@/components/pages/Contact.astro';
 import Cv from '@/components/pages/Cv.astro';
 import Now from '@/components/pages/Now.astro';
+import Privacy from '@/components/pages/Privacy.astro';
 import Projects from '@/components/pages/Projects.astro';
 import type { Locale } from '@/i18n/config';
 import { ROUTES, STATIC_PAGES, routeFromSlug, type RouteId } from '@/i18n/routes';
@@ -21,12 +22,13 @@ const route = routeFromSlug(locale, Astro.params.slug);
 if (!route) throw new Error(`No route for slug "${Astro.params.slug}" in locale "${locale}"`);
 const tr = t(locale);
 const title = tr(`page.${route}.title` as const);
+const description = route === 'privacy' ? tr('page.privacy.description') : tr('site.description');
 
-const bodies: Partial<Record<RouteId, typeof About>> = { about: About, now: Now, projects: Projects, contact: Contact, cv: Cv };
+const bodies: Partial<Record<RouteId, typeof About>> = { about: About, now: Now, projects: Projects, contact: Contact, cv: Cv, privacy: Privacy };
 const Body = bodies[route];
 ---
 
-<BaseLayout locale={locale} route={route} title={title} description={tr('site.description')} alternates={alternates(route)}>
+<BaseLayout locale={locale} route={route} title={title} description={description} alternates={alternates(route)}>
   <article class="page">
     <h1>{title}</h1>
     {Body ? <Body locale={locale} /> : <p class="page__placeholder">{tr('page.placeholder')}</p>}

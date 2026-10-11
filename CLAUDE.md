@@ -74,7 +74,12 @@ the best 2 or 3 projects, publish notes and articles, and make contact easy.
 - Contact: email, GitHub, LinkedIn, one line of services. No form, no backend.
 - "Ahora/Now" is its own page (already routed), not a hero panel.
 - Open Graph images: static PNGs in `public/og/`. Comments: none for now (Giscus maybe later).
-- Analytics: Cloudflare Web Analytics, added at deploy time / when the domain is bought.
+- Analytics: Cloudflare Web Analytics, deliberately not added yet (owner skipped it, Oct 2026).
+- Privacy page (`/privacidad`, `/en/privacy`): linked only from the footer, never in the nav.
+  Content in `src/content/pages/privacy.<locale>.md` states that nothing is collected, that the
+  theme is kept in localStorage, and points to Cloudflare's privacy policy. Update it (and its
+  `updated` date) before adding analytics, comments or any form. No consent banner is needed
+  for the current setup (assessment against LOPDP Ecuador, GDPR scope and WP Opinion 04/2012).
 - Hosting: Cloudflare Workers serving `dist/` as static assets (Pages is no longer offered for
   new projects). Config in `wrangler.jsonc`: custom domains `titorjs.dev` and `www` (www → apex is a
   Cloudflare Redirect Rule in the dashboard; `_redirects` cannot match hosts), site 404 page, no trailing slashes. Builds on push to
