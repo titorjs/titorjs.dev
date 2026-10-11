@@ -76,8 +76,8 @@ the best 2 or 3 projects, publish notes and articles, and make contact easy.
 - Open Graph images: static PNGs in `public/og/`. Comments: none for now (Giscus maybe later).
 - Analytics: Cloudflare Web Analytics, added at deploy time / when the domain is bought.
 - Hosting: Cloudflare Workers serving `dist/` as static assets (Pages is no longer offered for
-  new projects). Config in `wrangler.jsonc`: custom domains `titorjs.dev` and `www` (www redirects
-  to the apex via `public/_redirects`), site 404 page, no trailing slashes. Builds on push to
+  new projects). Config in `wrangler.jsonc`: custom domains `titorjs.dev` and `www` (www → apex is a
+  Cloudflare Redirect Rule in the dashboard; `_redirects` cannot match hosts), site 404 page, no trailing slashes. Builds on push to
   `main`; `develop` gets preview builds. Live since Oct 2026.
   Email `tito@titorjs.dev` forwards to his personal inbox via Cloudflare Email Routing (done);
   sending *as* that address from Gmail is still pending.
