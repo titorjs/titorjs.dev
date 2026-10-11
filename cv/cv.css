@@ -32,19 +32,19 @@
 
 @page {
   size: A4;
-  margin: 11mm 14mm;
+  margin: 10mm 13mm;
 }
 
 * { box-sizing: border-box; }
 
-html { font-size: 9.2pt; }
+html { font-size: 8.5pt; }
 
 body {
   margin: 0;
   background: var(--color-bg);
   color: var(--color-text);
   font-family: var(--font-sans);
-  line-height: 1.4;
+  line-height: 1.35;
 }
 
 a { color: inherit; text-decoration: none; }
@@ -78,7 +78,7 @@ h1 {
 }
 .contact a { color: var(--color-accent); }
 
-section { margin-top: 0.7rem; }
+section { margin-top: 0.6rem; }
 h2 { break-after: avoid; }
 h2 {
   margin: 0 0 0.4rem;
@@ -92,7 +92,7 @@ h2 {
   color: var(--color-accent);
 }
 
-.entry { margin-top: 0.55rem; break-inside: avoid; }
+.entry { margin-top: 0.4rem; break-inside: avoid; }
 .entry:first-of-type { margin-top: 0; }
 .entry__head {
   display: flex;
@@ -120,3 +120,4 @@ dd { margin: 0; }
 
 .inline { display: flex; flex-wrap: wrap; gap: 0.2rem 1.2rem; }
 .note { margin-top: 0.3rem; font-size: 0.8rem; color: var(--color-muted); }
+.services { margin-top: 0.45rem; font-size: 0.85rem; color: var(--color-muted); }
