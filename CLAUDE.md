@@ -32,9 +32,10 @@ Node comes from nvm (`nvm use`, see `.nvmrc`).
 - **Content is Markdown/MDX in content collections.** No CMS, no database, no runtime fetch.
 - **Open Graph images are static files** under `public/og/` (reused outside the site).
 - **Analytics (Cloudflare Web Analytics) is added at deploy time**, not before.
+- **Deploy flow:** work on `develop`, fast-forward `main` and push both. Never force-push.
 - **Never commit.** The owner commits manually unless the prompt contains `COMMIT`.
-- **Phases.** 1 skeleton (done) · 2 Home/About/Contact · 3 Projects · 4 Blog + RSS · 5 Cloudflare
-  Pages + domain · 6 SEO/OG/a11y/CV. Final copy, project selection and CV format are the owner's
+- **Phases.** 1 skeleton · 2 Home/About/Contact · 3 Projects · 5 Cloudflare + domain (all done) ·
+  4 Blog + RSS · 6 SEO/OG/a11y (CV done). Final copy, project selection and CV format are the owner's
   decisions: ask before inventing them.
 
 ## Layout
@@ -74,7 +75,10 @@ the best 2 or 3 projects, publish notes and articles, and make contact easy.
 - "Ahora/Now" is its own page (already routed), not a hero panel.
 - Open Graph images: static PNGs in `public/og/`. Comments: none for now (Giscus maybe later).
 - Analytics: Cloudflare Web Analytics, added at deploy time / when the domain is bought.
-- Hosting: Cloudflare Pages. Domain `titorjs.dev` bought and on Cloudflare (Oct 2026).
+- Hosting: Cloudflare Workers serving `dist/` as static assets (Pages is no longer offered for
+  new projects). Config in `wrangler.jsonc`: custom domains `titorjs.dev` and `www` (www redirects
+  to the apex via `public/_redirects`), site 404 page, no trailing slashes. Builds on push to
+  `main`; `develop` gets preview builds. Live since Oct 2026.
   Email `tito@titorjs.dev` forwards to his personal inbox via Cloudflare Email Routing (done);
   sending *as* that address from Gmail is still pending.
 - CV: one PDF per language, public version without phone number or references. Sources in `cv/`

@@ -7,5 +7,8 @@
     "html_handling": "drop-trailing-slash",
     "not_found_handling": "404-page"
   },
-  "routes": [{ "pattern": "titorjs.dev", "custom_domain": true }]
+  "routes": [
+    { "pattern": "titorjs.dev", "custom_domain": true },
+    { "pattern": "www.titorjs.dev", "custom_domain": true }
+  ]
 }
