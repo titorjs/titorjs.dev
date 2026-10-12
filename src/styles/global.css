@@ -72,6 +72,12 @@ a {
 a:hover {
   text-decoration: underline;
 }
+/* Links inside running text must not rely on colour alone (WCAG 1.4.1). */
+p a,
+.prose a {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+}
 
 :focus-visible {
   outline: 2px solid var(--color-focus);

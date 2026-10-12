@@ -10,7 +10,7 @@ const tr = t(locale);
 
 <div class="contact">
   <p class="contact__lead">
-    {tr('contact.intro')} <a class="contact__email" href={`mailto:${SOCIAL.email}`}>{SOCIAL.email}</a>.
+    {tr('contact.intro')} <a class="contact__email" href={`mailto:${SOCIAL.email}`}>{SOCIAL.email}</a>.{' '}
     {tr('contact.also')} <a href={SOCIAL.github} rel="me">GitHub</a> {locale === 'es' ? 'y' : 'and'} <a href={SOCIAL.linkedin} rel="me">LinkedIn</a>.
   </p>
   <p>{tr('contact.services')}</p>

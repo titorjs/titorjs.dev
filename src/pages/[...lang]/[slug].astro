@@ -11,7 +11,7 @@ import Now from '@/components/pages/Now.astro';
 import Privacy from '@/components/pages/Privacy.astro';
 import Projects from '@/components/pages/Projects.astro';
 import type { Locale } from '@/i18n/config';
-import { ROUTES, STATIC_PAGES, routeFromSlug, type RouteId } from '@/i18n/routes';
+import { ROUTES, STATIC_PAGES, routeFromSlug, type StaticRouteId } from '@/i18n/routes';
 import { alternates, localeStaticPaths, t } from '@/i18n/utils';
 
 export const getStaticPaths = () =>
@@ -22,9 +22,9 @@ const route = routeFromSlug(locale, Astro.params.slug);
 if (!route) throw new Error(`No route for slug "${Astro.params.slug}" in locale "${locale}"`);
 const tr = t(locale);
 const title = tr(`page.${route}.title` as const);
-const description = route === 'privacy' ? tr('page.privacy.description') : tr('site.description');
+const description = tr(`page.${route}.description` as const);
 
-const bodies: Partial<Record<RouteId, typeof About>> = { about: About, now: Now, projects: Projects, contact: Contact, cv: Cv, privacy: Privacy };
+const bodies: Partial<Record<StaticRouteId, typeof About>> = { about: About, now: Now, projects: Projects, contact: Contact, cv: Cv, privacy: Privacy };
 const Body = bodies[route];
 ---
 

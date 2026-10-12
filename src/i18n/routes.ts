@@ -16,13 +16,15 @@ export const ROUTES = {
 } as const satisfies Record<string, Record<Locale, string>>;
 
 export type RouteId = keyof typeof ROUTES;
+/** Every route except home: the pages rendered by `[slug].astro`. */
+export type StaticRouteId = Exclude<RouteId, 'home'>;
 
 /** Order of entries in the main navigation. */
 export const NAV_ORDER: readonly RouteId[] = ['home', 'about', 'projects', 'blog', 'now', 'contact'];
 
 /** Top-level pages rendered by `[slug].astro` (everything except home). */
-export const STATIC_PAGES: readonly RouteId[] = (Object.keys(ROUTES) as RouteId[]).filter((id) => id !== 'home');
+export const STATIC_PAGES: readonly StaticRouteId[] = (Object.keys(ROUTES) as RouteId[]).filter((id): id is StaticRouteId => id !== 'home');
 
-export function routeFromSlug(locale: Locale, slug: string | undefined): RouteId | undefined {
+export function routeFromSlug(locale: Locale, slug: string | undefined): StaticRouteId | undefined {
   return STATIC_PAGES.find((id) => ROUTES[id][locale] === slug);
 }

@@ -35,7 +35,7 @@ Node comes from nvm (`nvm use`, see `.nvmrc`).
 - **Deploy flow:** work on `develop`, fast-forward `main` and push both. Never force-push.
 - **Never commit.** The owner commits manually unless the prompt contains `COMMIT`.
 - **Phases.** 1 skeleton · 2 Home/About/Contact · 3 Projects · 5 Cloudflare + domain (all done) ·
-  4 Blog + RSS · 6 SEO/OG/a11y (CV done). Final copy, project selection and CV format are the owner's
+  4 Blog + RSS · 6 SEO/OG/a11y (done: CV, OG, per-page descriptions, Lighthouse a11y/SEO 100). Final copy, project selection and CV format are the owner's
   decisions: ask before inventing them.
 
 ## Layout
@@ -104,3 +104,4 @@ the best 2 or 3 projects, publish notes and articles, and make contact easy.
 - Open-source project: wanted but not chosen yet (TODO). Do not list one on the CV or the site
   until a repo with a README exists. `core-web-blueprint` is private and stays private.
 - Palette and type are locked; the owner has only reviewed phone-width screenshots so far.
+- Links inside running text are underlined (`p a`, `.prose a` in global.css) for WCAG 1.4.1. Keep it.
